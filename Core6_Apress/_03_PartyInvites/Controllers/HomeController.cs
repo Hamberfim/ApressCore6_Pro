@@ -22,8 +22,16 @@ namespace _03_PartyInvites.Controllers
         [HttpPost]
         public ViewResult RsvpForm(GuestResponse guestResponse)
         {
-            Repository.AddResponse(guestResponse);
-            return View("Thanks", guestResponse);  // 'Thanks' is a razor view that guestResponse is passed to
+            if (ModelState.IsValid)
+            {
+                Repository.AddResponse(guestResponse);
+                return View("Thanks", guestResponse);  // 'Thanks' is a razor view that guestResponse is passed to 
+            }
+            else
+            {
+                // there is a validation error
+                return View();
+            }
         }
 
         public ViewResult ListResponses() 
