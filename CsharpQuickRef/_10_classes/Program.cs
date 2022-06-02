@@ -46,6 +46,15 @@
 
         }
 
+        // Type Inference
+        class JunkExample 
+        {
+            public int one = 1;
+            public string two = "two";
+            public bool three = true;
+            public double four;
+        }
+
         static void Main(string[] args)
         {
             // create object of box - basic class
@@ -74,6 +83,42 @@
             int thirdArea = thirdConstr.GetArea();  // result 50
             Console.WriteLine(thirdArea);
 
+            Console.WriteLine();  // space in output
+
+            // null
+            int? n = null;  // nullable value
+            // null-coalescing
+            int j = n ?? 5;   // 'j' will equal 'n's value if its not null, otherwise is will equal 5
+            Console.WriteLine($"Value of j is {j}");
+
+            int? p = 7;
+            int r = p ?? 0;  // 'r' will equal 'p's value if its not null, otherwise is will equal 0
+            Console.WriteLine($"Value of r is {r}");
+
+            // null assignment
+            string str1 = null;
+            int? strLen1 = str1?.Length;
+            Console.WriteLine($"Value of strLen is {strLen1}");  // result is 'strLen1' is null
+            // null and a conditional
+            int strLen2 = str1?.Length ?? 0;  // if 'str1' is null then assign a value of zero
+            Console.WriteLine($"Value of strLen is {strLen2}");
+
+            // Type Inference - Anonymous class JunkExample { int one = 1; string two = "two";}
+            var implicitType = new JunkExample();
+            Console.WriteLine($"implicitType.one = {implicitType.one} is {implicitType.one.GetType()}");
+            Console.WriteLine($"implicitType.two = {implicitType.two} is {implicitType.two.GetType()}");
+            Console.WriteLine($"implicitType.three = {implicitType.three} is {implicitType.three.GetType()}");
+            implicitType.four = 1.99;  // assigned
+            Console.WriteLine($"implicitType.four = {implicitType.four:C2} is {implicitType.four.GetType()}");
+
+            Console.WriteLine();  // space in output
+
+            // strictly an Anonymous Type
+            var someVar = new { first = "'The number one'", second = true, third = 3, fourth = 1.25m};
+            Console.WriteLine($"someVar.first = {someVar.first} is {someVar.first.GetType()}");
+            Console.WriteLine($"someVar.second = {someVar.second} is {someVar.second.GetType()}");
+            Console.WriteLine($"someVar.third = {someVar.third} is {someVar.third.GetType()}");
+            Console.WriteLine($"someVar.fourth = {someVar.fourth} is {someVar.fourth.GetType()}");
 
             Console.WriteLine();  // space in output
         }
