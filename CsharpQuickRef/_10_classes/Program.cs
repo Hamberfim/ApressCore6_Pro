@@ -4,7 +4,7 @@
     internal class Program
     {
         // basic class
-        class Box 
+        class Box
         {
             public int x, y;  // fields
             public int GetArea()  // method
@@ -24,7 +24,7 @@
 
             // first contructor
             public Rectangle()
-            { 
+            {
                 x = 2;
                 y = 5;
             }
@@ -46,8 +46,6 @@
 
         }
 
-
-
         static void Main(string[] args)
         {
             // create object of box - basic class
@@ -57,12 +55,18 @@
             int boxArea = b.GetArea();  // result 200
             Console.WriteLine(boxArea);
 
+            // create object of box with object initializers - basic class
+            Box boi = new Box() { x = 1, y = 3 };
+            int boiArea = boi.GetArea();  // result 3
+            Console.WriteLine(boiArea);
+
+
             // create an object of Rectangle class using the constructors
-            Rectangle firstConstr = new Rectangle();  
+            Rectangle firstConstr = new Rectangle();
             int firstArea = firstConstr.GetArea();  // result 10
             Console.WriteLine(firstArea);
 
-            Rectangle secConstr = new Rectangle(5);  
+            Rectangle secConstr = new Rectangle(5);
             int secArea = secConstr.GetArea();  // result 25
             Console.WriteLine(secArea);
 
