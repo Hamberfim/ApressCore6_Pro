@@ -47,7 +47,7 @@
         }
 
         // Type Inference
-        class JunkExample 
+        class JunkExample
         {
             public int one = 1;
             public string two = "two";
@@ -103,7 +103,7 @@
             int strLen2 = str1?.Length ?? 0;  // if 'str1' is null then assign a value of zero
             Console.WriteLine($"Value of strLen is {strLen2}");
 
-            // Type Inference - Anonymous class JunkExample { int one = 1; string two = "two";}
+            // Type Inference - Anonymous class - JunkExample { int one = 1; string two = "two"; bool three = true; double four;}
             var implicitType = new JunkExample();
             Console.WriteLine($"implicitType.one = {implicitType.one} is {implicitType.one.GetType()}");
             Console.WriteLine($"implicitType.two = {implicitType.two} is {implicitType.two.GetType()}");
@@ -114,11 +114,18 @@
             Console.WriteLine();  // space in output
 
             // strictly an Anonymous Type
-            var someVar = new { first = "'The number one'", second = true, third = 3, fourth = 1.25m};
+            var someVar = new { first = "'The number one'", second = true, third = 3, fourth = 1.25m };
             Console.WriteLine($"someVar.first = {someVar.first} is {someVar.first.GetType()}");
             Console.WriteLine($"someVar.second = {someVar.second} is {someVar.second.GetType()}");
             Console.WriteLine($"someVar.third = {someVar.third} is {someVar.third.GetType()}");
             Console.WriteLine($"someVar.fourth = {someVar.fourth} is {someVar.fourth.GetType()}");
+
+            Console.WriteLine();  // space in output
+
+            // useable example
+            var personInfo = new { name = "Bill Williams", address = "1122 Boogie Ave", age = 40, salary = 42278.25m, activerEmployee = true};
+            Console.WriteLine($"{personInfo.name} of {personInfo.address}. Is an Employee:{personInfo.activerEmployee}. Age: {personInfo.age} making {personInfo.salary:C2}");
+
 
             Console.WriteLine();  // space in output
         }
