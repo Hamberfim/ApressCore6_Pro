@@ -5,9 +5,10 @@
         // base class
         class Person
         {
-            public string fName;
-            public string lName;
+            public string fName = "";
+            public string lName = "";
 
+            // method
             public string fullname()
             {
                 return fName + " " + lName;
@@ -16,9 +17,10 @@
 
         class PersonInfo : Person
         {
-            public int age;
-            public string gender;
+            public int age = 0;
+            public string gender = "";
 
+            // method
             public string personIdentity()
             {
                 return fullname() + ", age: " + age + ", gender: " + gender;
@@ -34,6 +36,8 @@
             personName.lName = "William";
             Console.WriteLine(personName.fullname());
 
+            Console.WriteLine();  // space in output
+
             // inherited class
             PersonInfo personInfo = new PersonInfo();
             personInfo.fName = "Clara";
@@ -42,9 +46,7 @@
             personInfo.gender = "female";
             Console.WriteLine(personInfo.personIdentity());
 
-
-
-            Console.WriteLine();  // space inoutput
+            Console.WriteLine();  // space in output
 
         }
     }
