@@ -48,6 +48,21 @@
 
             Console.WriteLine();  // space in output
 
+            // downcast and upcast
+            PersonInfo personInfoUpcast = new PersonInfo();
+            personInfoUpcast.fName = "Henry";
+            personInfoUpcast.lName = "Hill";
+            personInfoUpcast.age = 44;
+            personInfoUpcast.gender = "male";
+            
+            // upcast 
+            Person personUpcast = personInfoUpcast;
+            // Console.WriteLine(personUpcast.personIdentity());  // ERROR - only Person' members can be access
+            Console.WriteLine(personUpcast.fullname());
+            // downcast
+            PersonInfo personDowncast = (PersonInfo)personUpcast;
+            Console.WriteLine(personDowncast.personIdentity());  // everything specific to PersonInfo was preserved in the upcast/downcast of personInfoUpcast
+
         }
     }
 }
