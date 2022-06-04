@@ -63,6 +63,16 @@
             PersonInfo personDowncast = (PersonInfo)personUpcast;
             Console.WriteLine(personDowncast.personIdentity());  // everything specific to PersonInfo was preserved in the upcast/downcast of personInfoUpcast
 
+            Console.WriteLine();  // space in output
+
+            // boxing allows for value type variables to be converted to reference type
+            double price = 2.99;
+            object priceObj = price;  // now seen as a ref type
+            // unboxing via cast
+            price = (double)priceObj;
+
+            // is | as keywords
+
         }
     }
 }
