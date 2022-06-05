@@ -99,13 +99,14 @@
 
             Console.WriteLine();  // space in output
 
-            void test(object j)
+            // used with ref types, value types and constants
+            void test(object j)  // using the 'is' - the introduced pattern variable is thru the block and after the end of the if statement
             {
                 if (j is 5)
                 {
                     Console.WriteLine(5);
                 }
-                else if (j is int i)
+                else if (j is int i)  // validation and assigning it to a variable of the same datatype
                 {
                     Console.WriteLine("int:" + i);
                 }
@@ -118,6 +119,28 @@
             test(5);
             test(1);
             test(null);
+
+            Console.WriteLine();  // space in output
+
+            void testSwitch(object j)
+            {
+                switch(j)
+                {
+                    case 5:
+                        Console.WriteLine(5);
+                        break;
+                    case int i:
+                        Console.WriteLine("int:" + i);
+                        break;
+                    case null:
+                        Console.WriteLine("null");
+                        break;
+                }
+            }
+
+            testSwitch(5);
+            testSwitch(1);
+            testSwitch(null);
 
         }
     }
