@@ -126,6 +126,7 @@
             {
                 switch(j)
                 {
+                    // order is important - fisrt case matching number must be first so the case int can be matched
                     case 5:
                         Console.WriteLine(5);
                         break;
@@ -141,6 +142,31 @@
             testSwitch(5);
             testSwitch(1);
             testSwitch(null);
+
+            Console.WriteLine();  // space in output
+
+            // C# 9 or later - logical operators  - is this a letter
+            bool IsLetter(char letter)
+            {
+                return letter is >= 'a' and <= 'z' or >= 'A' and <= 'Z';
+            }
+            Console.WriteLine(IsLetter((char)68));   // true explicit cast
+            Console.WriteLine(IsLetter((char)0));   // flase explicit cast
+            Console.WriteLine(IsLetter('G'));  // true
+            Console.WriteLine(IsLetter('\u0068'));  // h true
+
+            Console.WriteLine();  // space in output
+
+            // C# 9 or later - logical operators  - is this a positive double of 10 or less
+            bool IsDoubleLessThanTen(double val)
+            {
+                return val is >= 0.001 and <= 10.0;
+            }
+            Console.WriteLine(IsDoubleLessThanTen('G'));  // false
+            Console.WriteLine(IsDoubleLessThanTen(0.7));  // true
+            Console.WriteLine(IsDoubleLessThanTen(0.0001));  // false
+            Console.WriteLine(IsDoubleLessThanTen(11));  // false
+            Console.WriteLine(IsDoubleLessThanTen(2));  // true - int converts
 
         }
     }
